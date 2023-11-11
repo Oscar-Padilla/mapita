@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rol;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RolController extends Controller
 {
@@ -12,7 +13,8 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $rols = DB::table('rols')->get();
+        return $rols;
     }
 
     /**
@@ -28,7 +30,12 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rol = Rol::create([
+            'name'=> $request->nameRol,
+            'description'=> $request->desc,
+        ]);
+        $rol->save();
+        return $request;
     }
 
     /**

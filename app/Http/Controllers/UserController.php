@@ -31,12 +31,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
-            'name' => $request->nombre,
-            'email' => $request->correo,
-            'password' => $request->pass
+            'name' => $request->nom,
+            'email' => $request->mail,
+            'password' => $request->pass,
+            'rol_id' => $request->rol
         ]);
         $user->save();
-
         return $request;
     }
 
