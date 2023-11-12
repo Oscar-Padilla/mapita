@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelonsgToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -26,6 +28,12 @@ class User extends Authenticatable
     ];
     public function rols(): BelongsTo{
         return $this->belongsTo(Rol::class);
+    }
+    public function reviews(): HasMany{
+        return $this->hasMany(Review::class);
+    }
+    public function locations(): BelongsToMany{
+        return $this->belongsToMany(Location::class, 'user_locations');
     }
     /**
      * The attributes that should be hidden for serialization.
