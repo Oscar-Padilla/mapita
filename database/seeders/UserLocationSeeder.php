@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Models\UserLocation;
 class UserLocationSeeder extends Seeder
 {
     /**
@@ -12,6 +12,6 @@ class UserLocationSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+
     }
 }
